@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import {createGraphiQLFetcher} from "@graphiql/toolkit";
+import GraphiQL from "graphiql";
+import ServiceList from "./containers/ServiceList";
+import ServicePlayground from "./containers/ServicePlayground";
+import ServiceVisualize from "./containers/ServiceVisualize";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -12,11 +17,25 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>
+        element: <App/>,
+        children: [
+            {
+                path: "services",
+                element: <ServiceList/>
+            },
+            {
+                path: "services/:name/playground",
+                element: <ServicePlayground/>,
+            },
+            {
+                path: "services/:name/visualize",
+                element: <ServiceVisualize/>,
+            },
+        ],
     },
     {
-        path: "/about",
-        element: <div>Hello world!</div>,
+        path: "/rbac",
+        element: <ServiceVisualize/>,
     },
 ]);
 
