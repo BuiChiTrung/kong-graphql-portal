@@ -3,8 +3,6 @@ import React, {useState} from "react";
 
 const ServiceVisualize: React.FC = () => {
     function introspectionProvider(introspectionQuery: any) {
-        // This example expects a GraphQL server at the path /graphql.
-        // Change this to point wherever you host your GraphQL server.
         return fetch('http://localhost:8000/country/graphql', {
             method: 'post',
             headers: {
@@ -19,7 +17,6 @@ const ServiceVisualize: React.FC = () => {
             })
             .then(function (responseBody) {
                 try {
-                    // setA(JSON.parse(responseBody))
                     return JSON.parse(responseBody);
 
                 } catch (error) {
