@@ -24,18 +24,18 @@ const router = createBrowserRouter([
                 element: <ServiceList/>
             },
             {
-                path: "services/:name/playground",
+                path: ":name/playground",
                 element: <ServicePlayground/>,
             },
             {
-                path: "services/:name/visualize",
+                path: ":name/visualize",
                 element: <ServiceVisualize/>,
             },
+            {
+                path: ":name/rbac",
+                element: <div>Hello world</div>,
+            },
         ],
-    },
-    {
-        path: "/rbac",
-        element: <ServiceVisualize/>,
     },
 ]);
 
