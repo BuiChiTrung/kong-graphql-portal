@@ -7,7 +7,9 @@ const ServicePlayground: React.FC = () => {
     let {name} = useParams()
     const fetcher = createGraphiQLFetcher({url: `http://localhost:8000/${name}/graphql`});
 
-    return <GraphiQL fetcher={fetcher}/>
+    return <div id="graphiql" style={{"height": "100vh"}}>
+        <GraphiQL fetcher={fetcher}/>
+    </div>
 }
 
 export default ServicePlayground

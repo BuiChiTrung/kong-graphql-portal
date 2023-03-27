@@ -34,6 +34,8 @@ const columns = [
     },
 ];
 
+const graphQLServiceTag = "graphql"
+
 const ServiceList: React.FC = () => {
     const [services, setServices] = useState<Service[]>([])
 
@@ -49,8 +51,7 @@ const ServiceList: React.FC = () => {
                 return response.data
             })
             .then(({data}) => {
-                // TODO: trung.bc - hard code
-                data = data.filter((service: Service) => (service.tags != null && service.tags.includes("graphql")))
+                data = data.filter((service: Service) => (service.tags != null && service.tags.includes(graphQLServiceTag)))
                 setServices(data)
             })
             .catch(function (error: any) {

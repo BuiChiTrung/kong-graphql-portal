@@ -1,43 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {RouterProvider} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import {createGraphiQLFetcher} from "@graphiql/toolkit";
-import GraphiQL from "graphiql";
-import ServiceList from "./containers/ServiceList";
-import ServicePlayground from "./containers/ServicePlayground";
-import ServiceVisualize from "./containers/ServiceVisualize";
+import router from "./router";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
-
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App/>,
-        children: [
-            {
-                path: "services",
-                element: <ServiceList/>
-            },
-            {
-                path: ":name/playground",
-                element: <ServicePlayground/>,
-            },
-            {
-                path: ":name/visualize",
-                element: <ServiceVisualize/>,
-            },
-            {
-                path: ":name/rbac",
-                element: <div>Hello world</div>,
-            },
-        ],
-    },
-]);
 
 root.render(
     <React.StrictMode>

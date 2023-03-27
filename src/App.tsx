@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {CodeSandboxCircleFilled, ControlFilled, MenuFoldOutlined, MenuUnfoldOutlined,} from '@ant-design/icons';
 import {Layout, Menu, theme} from 'antd';
 import 'graphiql/graphiql.min.css';
-import { Link, Outlet} from "react-router-dom";
+import { Link } from "react-router-dom";
+import ServiceList from "./containers/ServiceList";
 
 const {Header, Sider, Content} = Layout;
 
@@ -39,7 +40,6 @@ const App: React.FC = () => {
                     theme="dark"
                     mode="inline"
                     defaultSelectedKeys={['1']}
-                    // items={items}
                 >
                     {
                         items.map(item => {
@@ -71,7 +71,7 @@ const App: React.FC = () => {
                         background: colorBgContainer,
                     }}
                 >
-                    <Outlet/>
+                    <ServiceList/>
                 </Content>
             </Layout>
         </Layout>
